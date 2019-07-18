@@ -7,7 +7,7 @@ import 'package:Test/model/user.dart';
 class AddUserDialog {
   final teFirstName = TextEditingController();
   final teLastFirstName = TextEditingController();
-  final teDOB = TextEditingController();
+  final teProfession = TextEditingController();
   User user;
 
   static const TextStyle linkStyle = const TextStyle(
@@ -21,7 +21,7 @@ class AddUserDialog {
       this.user=user;
       teFirstName.text = user.firstName;
       teLastFirstName.text = user.lastName;
-      teDOB.text = user.dob;
+      teProfession.text = user.profession;
     }
 
     return new AlertDialog(
@@ -33,7 +33,7 @@ class AddUserDialog {
           children: <Widget>[
             getTextField("Enter first name", teFirstName),
             getTextField("Enter last name", teLastFirstName),
-            getTextField("Enter Profession", teDOB),
+            getTextField("Enter Profession", teProfession),
             new GestureDetector(
               onTap: () {
                 addRecord(isEdit);
@@ -91,7 +91,7 @@ class AddUserDialog {
 
   Future addRecord(bool isEdit) async {
     var db = new DatabaseHelper();
-    var user = new User(teFirstName.text, teLastFirstName.text, teDOB.text);
+    var user = new User(teFirstName.text, teLastFirstName.text, teProfession.text);
     if (isEdit) {
       user.setUserId(this.user.id);
       await db.update(user);

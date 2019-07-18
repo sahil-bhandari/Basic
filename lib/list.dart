@@ -5,11 +5,11 @@ import 'package:Test/model/user.dart';
 import 'package:Test/presenter/home_presenter.dart';
 
 class UserList extends StatelessWidget {
-  List<User> country;
+  List<User> employeeList;
   HomePresenter homePresenter;
 
   UserList(
-    this.country,
+    this.employeeList,
     this.homePresenter, {
     Key key,
   }) : super(key: key);
@@ -17,7 +17,7 @@ class UserList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new ListView.builder(
-        itemCount: country == null ? 0 : country.length,
+        itemCount: employeeList == null ? 0 : employeeList.length,
         itemBuilder: (BuildContext context, int index) {
           return new Card(
             child: new Container(
@@ -26,7 +26,7 @@ class UserList extends StatelessWidget {
                     children: <Widget>[
                       new CircleAvatar(
                         radius: 30.0,
-                        child: new Text(getShortName(country[index])),
+                        child: new Text(getShortName(employeeList[index])),
                         backgroundColor: const Color(0xFF20283e),
                       ),
                       new Expanded(
@@ -36,16 +36,16 @@ class UserList extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               new Text(
-                                country[index].firstName +
+                                employeeList[index].firstName +
                                     " " +
-                                    country[index].lastName,
+                                    employeeList[index].lastName,
                                 // set some style to text
                                 style: new TextStyle(
                                     fontSize: 20.0,
-                                    color: Colors.lightBlueAccent),
+                                    color: Colors.green),
                               ),
                               new Text(
-                                "DATE: " + country[index].dob,
+                                "(" + employeeList[index].profession +")",
                                 // set some style to text
                                 style: new TextStyle(
                                     fontSize: 20.0, color: Colors.amber),
@@ -60,16 +60,16 @@ class UserList extends StatelessWidget {
                          new IconButton(
                               icon: const Icon(
                                 Icons.edit,
-                                color: const Color(0xFF167F67),
+                                color: const Color(0xFFBDBDBD),
                               ),
-                              onPressed: () => edit(country[index], context),
+                              onPressed: () => edit(employeeList[index], context),
                             ),
 
                           new IconButton(
                             icon: const Icon(Icons.delete_forever,
-                                color: const Color(0xFF167F67)),
+                                color: const Color(0xFFC62828)),
                             onPressed: () =>
-                                homePresenter.delete(country[index]),
+                                homePresenter.delete(employeeList[index]),
                           ),
                         ],
                       ),

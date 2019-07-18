@@ -31,7 +31,7 @@ class DatabaseHelper {
   void _onCreate(Database db, int version) async {
     // When creating the db, create the table
     await db.execute(
-        "CREATE TABLE User(id INTEGER PRIMARY KEY, firstname TEXT, lastname TEXT, dob TEXT)");
+        "CREATE TABLE User(id INTEGER PRIMARY KEY, firstname TEXT, lastname TEXT, profession TEXT)");
   }
 
   Future<int> saveUser(User user) async {
@@ -46,7 +46,7 @@ class DatabaseHelper {
     List<User> employees = new List();
     for (int i = 0; i < list.length; i++) {
       var user =
-          new User(list[i]["firstname"], list[i]["lastname"], list[i]["dob"]);
+          new User(list[i]["firstname"], list[i]["lastname"], list[i]["profession"]);
       user.setUserId(list[i]["id"]);
       employees.add(user);
     }

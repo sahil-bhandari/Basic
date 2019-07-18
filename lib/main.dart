@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       title: 'Test Demo',
       // debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
         primaryColor:  Colors.blueAccent,
         accentColor: Colors.blueGrey,
         primaryColorDark: Colors.blueAccent,
