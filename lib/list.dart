@@ -35,7 +35,7 @@ class UserList extends StatelessWidget {
                           child: new Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              new Text(
+                              new Text(" "+
                                 employeeList[index].firstName +
                                     " " +
                                     employeeList[index].lastName,
@@ -96,7 +96,7 @@ class UserList extends StatelessWidget {
   String getShortName(User user) {
     String shortName = "";
     if (user.firstName.isNotEmpty) {
-      shortName = user.firstName.substring(0, 1) + ".";
+      shortName = user.firstName.substring(0, 1) + " ";
     }
 
     if (user.lastName.isNotEmpty) {
